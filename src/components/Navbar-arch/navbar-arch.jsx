@@ -53,7 +53,7 @@ const NavbarArch = ({ navbarRef, theme }) => {
                 offset={50}
                 duration={500}
               >
-                Why A Free Consultation With ?
+                Why A Free Consultation With Dragon Eye?
               </Link>
             </li>
             <li className="nav-item">

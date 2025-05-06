@@ -227,6 +227,15 @@ const AboutUs6 = () => {
                         placeholder="Enter your email address"
                       />
                     </div>
+                    <div className="form-group">
+                      <label htmlFor="whatsapp">WhatsApp Number</label>
+                      <input
+                        type="tel"
+                        id="whatsapp"
+                        className="form-input"
+                        placeholder="Enter your WhatsApp number with country code"
+                      />
+                    </div>
                     <button
                       className="submit-button"
                       disabled={!selectedDate || !selectedTime}
@@ -239,7 +248,7 @@ const AboutUs6 = () => {
             </div>
           </div>
 
-          <div className="col-lg-6 valign" style={{textAlign: "center"}}>
+          <div className="col-lg-6 valign" style={{ textAlign: "center" }}>
             <div className="content">
               <h3>
                 Double Your Profits From Real Estate Investment With A Free
