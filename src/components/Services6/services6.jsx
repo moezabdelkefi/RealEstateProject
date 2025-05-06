@@ -1,84 +1,40 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
+import AboutUs1Date from "../../data/sections/about-us1.json";
 
 const Services6 = () => {
   return (
-    <section className="serv-arch">
-      <div className="container-fluid">
-        <div className="row justify-content-center">
-          <div
-            className="col-lg col-md-6 item bg-img"
-            style={{ backgroundImage: "url(/img/arch/s2.jpg)" }}
-          >
-            <h6 className="numb">01</h6>
-            <h5>Architecture</h5>
-            <p>
-              We provide all equipment and services, etc and ensure a safe and
-              secure project site.
-            </p>
-            <Link href="/about/about-dark">
-              <a className="custom-font more main-color">Read More</a>
-            </Link>
+    <section className="about-us section-padding" id="about">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-5 valign md-mb50">
+            <div className="mb-50">
+              <h3 className="fw-600 text-u ls1 mb-30 color-font">
+                Why A Free Consultation With Elegant Oryx?
+              </h3>
+              <p>
+                Our experts have been specializing in real estate investment and
+                the property market in Dubai for years, providing you with
+                tailor-made consultations based on your needs in property
+                purchasing, ensuring you get the most suitable solutions that
+                yield significant investment returns.
+              </p>
+            </div>
           </div>
-
-          <div
-            className="col-lg col-md-6 item bg-img"
-            style={{ backgroundImage: "url(/img/arch/s1.jpg)" }}
-          >
-            <h6 className="numb">02</h6>
-            <h5>Interior Design</h5>
-            <p>
-              We provide all equipment and services, etc and ensure a safe and
-              secure project site.
-            </p>
-            <Link href="/about/about-dark">
-              <a className="custom-font more main-color">Read More</a>
-            </Link>
-          </div>
-
-          <div
-            className="col-lg col-md-6 item bg-img"
-            style={{ backgroundImage: "url(/img/arch/s3.jpg)" }}
-          >
-            <h6 className="numb">03</h6>
-            <h5>3D Modeling</h5>
-            <p>
-              We provide all equipment and services, etc and ensure a safe and
-              secure project site.
-            </p>
-            <Link href="/about/about-dark">
-              <a className="custom-font more main-color">Read More</a>
-            </Link>
-          </div>
-
-          <div
-            className="col-lg col-md-6 item bg-img"
-            style={{ backgroundImage: "url(/img/arch/s4.jpg)" }}
-          >
-            <h6 className="numb">04</h6>
-            <h5>Furniture Design</h5>
-            <p>
-              We provide all equipment and services, etc and ensure a safe and
-              secure project site.
-            </p>
-            <Link href="/about/about-dark">
-              <a className="custom-font more main-color">Read More</a>
-            </Link>
-          </div>
-
-          <div
-            className="col-lg col-md-6 item bg-img"
-            style={{ backgroundImage: "url(/img/arch/s5.jpg)" }}
-          >
-            <h6 className="numb">05</h6>
-            <h5>Urban Design</h5>
-            <p>
-              We provide all equipment and services, etc and ensure a safe and
-              secure project site.
-            </p>
-            <Link href="/about/about-dark">
-              <a className="custom-font more main-color">Read More</a>
-            </Link>
+          <div className="col-lg-7 img">
+            <img src={AboutUs1Date.image} alt="" />
+            <div className="stauts">
+              {AboutUs1Date.stauts.map((item) => (
+                <div className="item" key={item.id}>
+                  <h4>
+                    {item.number}
+                    <span>{item.letter}</span>
+                  </h4>
+                  <h6>{item.stautsName}</h6>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

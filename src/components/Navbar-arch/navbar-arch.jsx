@@ -50,67 +50,20 @@ const NavbarArch = ({ navbarRef, theme }) => {
                 offset={50}
                 duration={500}
               >
-                About
+               Why A Free Consultation With ?
+
               </Link>
             </li>
             <li className="nav-item">
               <Link
                 className="nav-link"
-                to="po-arch"
+                to="How it works"
                 spy={true}
                 smooth={true}
                 offset={50}
                 duration={500}
               >
-                Works
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="team-arch"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                Team
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="testimonials-arch"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                Testimonials
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="blog-arch"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                Blog
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="contact-arch"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                Contact
+               How it works
               </Link>
             </li>
           </ul>

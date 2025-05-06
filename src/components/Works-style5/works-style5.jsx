@@ -1,169 +1,83 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Link from "next/link";
-import initIsotope from "../../common/initIsotope";
+import Split from "../Split";
+import AboutUs3date from "../../data/sections/about-us3.json";
+import { Link } from "react-scroll";
 
 const WorksStyle5 = () => {
-  React.useEffect(() => {
-    setTimeout(() => {
-      initIsotope();
-    }, 1000);
-  }, []);
   return (
-    <section className="portfolio po-arch section-padding pb-70" id="po-arch">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-8 col-md-10">
-            <div className="sec-head  text-center">
-              <h2 className="wow fadeIn" data-wow-delay=".3s">
-                Projects
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section className="agency section-padding position-re" id="How it works">
       <div className="container">
         <div className="row">
-          <div className="filtering col-12">
-            <div className="filter custom-font wow fadeIn" data-wow-delay=".5s">
-              <span data-filter="*" className="active">
-                All
-              </span>
-              <span data-filter=".brand">Interior</span>
-              <span data-filter=".web">Architecture</span>
-              <span data-filter=".graphic">Residential</span>
+          <div className="col-lg-7">
+            <div className="imgsec md-mb50">
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="item">
+                    <div
+                      className="imgone big-bord wow fadeInDown"
+                      data-wow-delay=".8s"
+                    >
+                      <img
+                        className="thumparallax-down"
+                        src={AboutUs3date.image1}
+                        alt=""
+                      />
+                    </div>
+                    <div className="exp">
+                      <h2 className="nmb-font">{AboutUs3date.exp.nmb}</h2>
+                      <h6>{AboutUs3date.exp.name}</h6>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="item">
+                    <div
+                      className="imgtwo big-bord wow fadeInUp"
+                      data-wow-delay=".6s"
+                    >
+                      <img
+                        className="thumparallax"
+                        src={AboutUs3date.image2}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <div className="col-lg-5 valign">
+            <div className="content">
+              <h4 className="wow words chars color-font" data-splitting>
+                How it works
+              </h4>
 
-          <div className="gallery full-width">
-            <div
-              className="col-md-6 items graphic lg-mr wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="item-img">
-                <Link href={`/project-details2/project-details2-dark`}>
-                  <a className="imago wow">
-                    <img src="/img/arch/work/1.jpg" alt="image" />
-                    <div className="item-img-overlay"></div>
-                  </a>
-                </Link>
-              </div>
-              <div className="cont">
-                <h5>BUGANVILLA HOUSE</h5>
-                <span className="tags main-color custom-font">
-                  <Link href="/works/works-dark">Arch</Link>,
-                  <Link href="/works/works-dark">Interior</Link>
-                </span>
-              </div>
-            </div>
+              <p className="wow txt words chars" data-splitting>
+                1. Book your appointment: <br />
+                Enter your details on this page and choose the convenient time
+                for you to conduct the free real estate consultation.
+              </p>
+              <p className="wow txt words chars" data-splitting>
+                2. We will keep in touch: <br />
+                We will send you a confirmation message with the consultation
+                link, and we will remind you sufficiently before the
+                appointment. During the consultation, one of our experts will
+                contact you to discuss your goals, answer your questions, and
+                provide suggestions that suit you.
+              </p>
 
-            <div
-              className="col-md-6 items web wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="item-img">
-                <Link href={`/project-details2/project-details2-dark`}>
-                  <a className="imago wow">
-                    <img src="/img/arch/work/2.jpg" alt="image" />
-                    <div className="item-img-overlay"></div>
-                  </a>
-                </Link>
-              </div>
-              <div className="cont">
-                <h5>The Concept</h5>
-                <span className="tags main-color custom-font">
-                  <Link href="/works/works-dark">Arch</Link>,
-                  <Link href="/works/works-dark">Interior</Link>
-                </span>
-              </div>
-            </div>
-
-            <div
-              className="col-md-6 items web wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="item-img">
-                <Link href={`/project-details2/project-details2-dark`}>
-                  <a className="imago wow">
-                    <img src="/img/arch/work/5.jpg" alt="image" />
-                    <div className="item-img-overlay"></div>
-                  </a>
-                </Link>
-              </div>
-              <div className="cont">
-                <h5>Private House</h5>
-                <span className="tags main-color custom-font">
-                  <Link href="/works/works-dark">Arch</Link>,
-                  <Link href="/works/works-dark">Interior</Link>
-                </span>
-              </div>
-            </div>
-
-            <div
-              className="col-md-6 items web graphic wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="item-img">
-                <Link href={`/project-details2/project-details2-dark`}>
-                  <a className="imago wow">
-                    <img src="/img/arch/work/3.jpg" alt="image" />
-                    <div className="item-img-overlay"></div>
-                  </a>
-                </Link>
-              </div>
-              <div className="cont">
-                <h5>Floating House Messinia</h5>
-                <span className="tags main-color custom-font">
-                  <Link href="/works/works-dark">Arch</Link>,
-                  <Link href="/works/works-dark">Interior</Link>
-                </span>
-              </div>
-            </div>
-
-            <div
-              className="col-md-6 items brand wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="item-img">
-                <Link href={`/project-details2/project-details2-dark`}>
-                  <a className="imago wow">
-                    <img src="/img/arch/work/4.jpg" alt="image" />
-                    <div className="item-img-overlay"></div>
-                  </a>
-                </Link>
-              </div>
-              <div className="cont">
-                <h5>IN THE PINE FOREST</h5>
-                <span className="tags main-color custom-font">
-                  <Link href="/works/works-dark">Arch</Link>,
-                  <Link href="/works/works-dark">Interior</Link>
-                </span>
-              </div>
-            </div>
-
-            <div
-              className="col-md-6 items brand wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div className="item-img">
-                <Link href={`/project-details2/project-details2-dark`}>
-                  <a className="imago wow">
-                    <img src="/img/arch/work/6.jpg" alt="image" />
-                    <div className="item-img-overlay"></div>
-                  </a>
-                </Link>
-              </div>
-              <div className="cont">
-                <h5>VILLAS IN SOCHI</h5>
-                <span className="tags main-color custom-font">
-                  <Link href="/works/works-dark">Arch</Link>,
-                  <Link href="/works/works-dark">Interior</Link>
-                </span>
-              </div>
+              <p className="wow txt words chars" data-splitting>
+                3. Define your goals: <br />
+                It is preferable to define your goal in real estate investment,
+                whether you are looking for a property for residence or
+                investment to achieve profits.
+              </p>
             </div>
           </div>
         </div>
       </div>
+      <div className="line bottom right"></div>
     </section>
   );
 };

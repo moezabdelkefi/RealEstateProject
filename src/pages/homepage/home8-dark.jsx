@@ -50,11 +50,11 @@ const Homepage = () => {
         <AboutUs6 />
         <Services6 />
         <WorksStyle5 />
-        <CaseStudy />
+        {/* <CaseStudy />
         <Team3 />
         <TestimonialsArch />
         <LatestNews />
-        <ContactArch />
+        <ContactArch /> */}
         <FooterArch />
       </DarkTheme>
     </>

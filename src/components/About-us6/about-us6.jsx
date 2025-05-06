@@ -10,7 +10,7 @@ const AboutUs6 = () => {
       const parallaxBg = document.querySelector(".parallax-bg");
       if (parallaxBg) {
         const scrollPosition = window.pageYOffset;
-        parallaxBg.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+        parallaxBg.style.transform = `translateY(${scrollPosition * 0.1}px)`;
       }
     };
 
@@ -46,7 +46,6 @@ const AboutUs6 = () => {
 
   return (
     <section
-      id="about"
       className="about-ar section-padding"
       style={{ position: "relative", overflow: "hidden" }}
     >
