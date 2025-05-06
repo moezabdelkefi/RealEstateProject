@@ -39,29 +39,7 @@ const NavbarArch = ({ navbarRef, theme }) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                data-scroll-nav="0"
-              >
-                Home
-              </span>
-              <div className="dropdown-menu">
-                <a
-                  className="dropdown-item"
-                  href={`/homepage/home4-dark`}
-                >
-                  Main Home
-                </a>
-                <a
-                  className="dropdown-item"
-                  href={`/about/about-dark`}
-                >
-                  About BADFI
-                </a>
-              </div>
-            </li>
+           
 
             <li className="nav-item">
               <Link

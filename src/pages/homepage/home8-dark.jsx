@@ -46,7 +46,7 @@ const Homepage = () => {
       </Head>
       <DarkTheme useSkin>
         <NavbarArch navbarRef={navbarRef} />
-        <Intro5 />
+        {/* <Intro5 /> */}
         <AboutUs6 />
         <Services6 />
         <WorksStyle5 />

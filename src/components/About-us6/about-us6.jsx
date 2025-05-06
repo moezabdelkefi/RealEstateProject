@@ -1,9 +1,24 @@
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 const AboutUs6 = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+
+  useEffect(() => {
+    // Parallax effect for background
+    const handleScroll = () => {
+      const parallaxBg = document.querySelector(".parallax-bg");
+      if (parallaxBg) {
+        const scrollPosition = window.pageYOffset;
+        parallaxBg.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleDateClick = (date) => {
     setSelectedDate(date);
@@ -15,7 +30,7 @@ const AboutUs6 = () => {
   };
 
   // Available time slots data
-  const timeSlots = ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM'];
+  const timeSlots = ["9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM"];
 
   // Calendar data for May 2025
   const calendarDays = [
@@ -23,15 +38,70 @@ const AboutUs6 = () => {
     [4, 5, 6, 7, 8, 9, 10],
     [11, 12, 13, 14, 15, 16, 17],
     [18, 19, 20, 21, 22, 23, 24],
-    [25, 26, 27, 28, 29, 30, 31]
+    [25, 26, 27, 28, 29, 30, 31],
   ];
 
   // Days of week for calendar header
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
-    <section id="about" className="about-ar section-padding">
-      <div className="container">
+    <section
+      id="about"
+      className="about-ar section-padding"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
+      {" "}
+      <div
+        className="parallax-bg"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: "url(/img/arch/slid/1.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          zIndex: -1,
+          opacity: 0.4,
+          // Remove transform and transition
+        }}
+      ></div>
+      {/* New Title and Subtitle Section */}
+      <div
+        className="section-header"
+        style={{
+          textAlign: "center",
+          padding: "4rem 0 2rem",
+          color: "white",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "2.5rem",
+            fontWeight: "700",
+            marginBottom: "1rem",
+            color: "#c5a47e",
+          }}
+        >
+          Schedule Your Consultation
+        </h2>
+        <p
+          style={{
+            fontSize: "1.2rem",
+            maxWidth: "700px",
+            margin: "0 auto",
+            opacity: 0.9,
+          }}
+        >
+          Book a free meeting with our real estate experts to discuss your
+          investment opportunities
+        </p>
+      </div>
+      <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <div className="row">
           <div className="col-lg-6 valign">
             <div className="img">
@@ -40,50 +110,47 @@ const AboutUs6 = () => {
                   <div className="profile-header">
                     <div className="avatar-wrapper">
                       <div className="avatar-content">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
+                        <svg
+                          viewBox="0 0 100 100"
+                          xmlns="http://www.w3.org/2000/svg"
+                        ></svg>
                       </div>
                     </div>
-                    <h2 className="profile-title">Meet with Us</h2>
+                    <h2 className="profile-title">Meet with Zoom</h2>
                   </div>
                 </div>
-                
+
                 <div className="date-picker">
-                  {/* Selected Date & Time Display */}
-                  {(selectedDate || selectedTime) && (
-                    <div className="selection-summary">
-                      {selectedDate && (
-                        <div className="selected-info">
-                          <span className="info-label">Selected Date:</span>
-                          <span className="info-value">May {selectedDate}, 2025</span>
-                        </div>
-                      )}
-                      {selectedTime && (
-                        <div className="selected-info">
-                          <span className="info-label">Selected Time:</span>
-                          <span className="info-value">{selectedTime}</span>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                  
                   {/* Calendar Section */}
                   <div className="date-picker-header">
-                    <button className="month-nav-button disabled" aria-label="Previous month" disabled>
+                    <button
+                      className="month-nav-button disabled"
+                      aria-label="Previous month"
+                      disabled
+                    >
                       <span className="nav-icon">‹</span>
                     </button>
                     <h3 className="month-title">May 2025</h3>
-                    <button className="month-nav-button disabled" aria-label="Next month" disabled>
+                    <button
+                      className="month-nav-button disabled"
+                      aria-label="Next month"
+                      disabled
+                    >
                       <span className="nav-icon">›</span>
                     </button>
                   </div>
-                  
+
                   <div className="calendar-container">
                     <table className="calendar-table">
-                      <caption className="calendar-caption">Select a day in May</caption>
+                      <caption className="calendar-caption">
+                        Select a day in May
+                      </caption>
                       <thead>
                         <tr>
-                          {daysOfWeek.map(day => (
-                            <th key={day} scope="col"><span>{day}</span></th>
+                          {daysOfWeek.map((day) => (
+                            <th key={day} scope="col">
+                              <span>{day}</span>
+                            </th>
                           ))}
                         </tr>
                       </thead>
@@ -92,9 +159,15 @@ const AboutUs6 = () => {
                           <tr key={weekIndex}>
                             {week.map((day, dayIndex) => (
                               <td key={dayIndex}>
-                                <button 
-                                  className={`date-button ${selectedDate === day ? 'selected' : ''} ${day < 6 || day > 17 ? 'disabled' : ''}`} 
-                                  onClick={day >= 6 && day <= 17 ? () => handleDateClick(day) : undefined}
+                                <button
+                                  className={`date-button ${
+                                    selectedDate === day ? "selected" : ""
+                                  } ${day < 6 || day > 17 ? "disabled" : ""}`}
+                                  onClick={
+                                    day >= 6 && day <= 17
+                                      ? () => handleDateClick(day)
+                                      : undefined
+                                  }
                                   disabled={day < 6 || day > 17}
                                 >
                                   {day}
@@ -106,15 +179,17 @@ const AboutUs6 = () => {
                       </tbody>
                     </table>
                   </div>
-                  
+
                   {/* Time Slots Section */}
                   <div className="time-slots">
                     <h4 className="time-slots-title">Available Times</h4>
                     <div className="time-buttons">
-                      {timeSlots.map(time => (
-                        <button 
+                      {timeSlots.map((time) => (
+                        <button
                           key={time}
-                          className={`time-button ${selectedTime === time ? 'selected' : ''}`} 
+                          className={`time-button ${
+                            selectedTime === time ? "selected" : ""
+                          }`}
                           onClick={() => handleTimeClick(time)}
                           disabled={!selectedDate}
                         >
@@ -123,38 +198,38 @@ const AboutUs6 = () => {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Form Section */}
                   <div className="booking-form">
                     <h4 className="form-title">Your Information</h4>
                     <div className="form-group">
                       <label htmlFor="firstName">First Name</label>
-                      <input 
-                        type="text" 
-                        id="firstName" 
-                        className="form-input" 
-                        placeholder="Enter your first name" 
+                      <input
+                        type="text"
+                        id="firstName"
+                        className="form-input"
+                        placeholder="Enter your first name"
                       />
                     </div>
                     <div className="form-group">
                       <label htmlFor="lastName">Last Name</label>
-                      <input 
-                        type="text" 
-                        id="lastName" 
-                        className="form-input" 
-                        placeholder="Enter your last name" 
+                      <input
+                        type="text"
+                        id="lastName"
+                        className="form-input"
+                        placeholder="Enter your last name"
                       />
                     </div>
                     <div className="form-group">
                       <label htmlFor="email">Email Address</label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        className="form-input" 
-                        placeholder="Enter your email address" 
+                      <input
+                        type="email"
+                        id="email"
+                        className="form-input"
+                        placeholder="Enter your email address"
                       />
                     </div>
-                    <button 
+                    <button
                       className="submit-button"
                       disabled={!selectedDate || !selectedTime}
                     >
@@ -174,25 +249,26 @@ const AboutUs6 = () => {
                 Consultation Now!
               </h3>
               <p>
-                Architecture bibendum pharetra eleifend. Suspendisse vel
-                volutpat purus, sit amet bibendum nisl. Cras mollis turpis a
-                ipsum ultes, nec condimentum ipsum consequat. Mauris vitae
-                consequat nibh, vitae interdum sit amet bibendum nisl.
+                - If you’re an investor seeking the highest return on investment
+                or you’re searching for your dream home for you and your family
+                in the United Arab Emirates, there are always obstacles to
+                achieving these goals:
               </p>
-
-              <Link href={`/about/about-dark`}>
-                <a className="butn bord mt-30">
-                  <span>About Us</span>
-                </a>
-              </Link>
+              <p>- Numerous options available in the UAE market.</p>
+              <p>
+                - Constant confusion in choosing the best real estate project.
+              </p>
+              <p>
+                - Many misleading offers that surprise you with hidden fees and
+                undisclosed payments in advertisements.
+              </p>
             </div>
           </div>
         </div>
       </div>
-
       <style>{`
         .booking-card {
-          background: #2d3748;
+          background: #000000;
           border-radius: 12px;
           overflow: hidden;
           color: white;
@@ -284,6 +360,7 @@ const AboutUs6 = () => {
           margin: 0;
           min-width: 6.25rem;
           text-align: center;
+          color: #c5a47e;
         }
         
         .calendar-container {
@@ -343,7 +420,7 @@ const AboutUs6 = () => {
         
         .date-button.selected,
         .date-button:not(.disabled):focus {
-          background: #4299e1;
+          background: #c5a47e;
           color: white;
           outline: none;
         }
@@ -362,7 +439,7 @@ const AboutUs6 = () => {
           font-size: 1rem;
           font-weight: 600;
           margin-bottom: 0.75rem;
-          color: rgba(255, 255, 255, 0.9);
+          color: #c5a47e;
         }
         
         .time-buttons {
@@ -390,7 +467,7 @@ const AboutUs6 = () => {
         
         .time-button.selected,
         .time-button:focus:not(:disabled) {
-          background: #4299e1;
+          background: #c5a47e;
           outline: none;
         }
         
@@ -408,7 +485,7 @@ const AboutUs6 = () => {
           font-size: 1rem;
           font-weight: 600;
           margin-bottom: 1rem;
-          color: rgba(255, 255, 255, 0.9);
+          color: #c5a47e;
         }
         
         .form-group {
@@ -419,14 +496,14 @@ const AboutUs6 = () => {
           display: block;
           margin-bottom: 0.5rem;
           font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.8);
+          color: rgba(255, 255, 255);
         }
         
         .form-input {
           width: 100%;
           padding: 0.625rem 0.75rem;
           border-radius: 6px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid #c5a47e;
           background: rgba(255, 255, 255, 0.1);
           color: white;
           font-size: 0.9rem;
@@ -435,7 +512,7 @@ const AboutUs6 = () => {
         
         .form-input:focus {
           outline: none;
-          border-color: #4299e1;
+          border-color: #c5a47e;
           background: rgba(66, 153, 225, 0.1);
         }
         
@@ -447,7 +524,7 @@ const AboutUs6 = () => {
           width: 100%;
           padding: 0.75rem;
           border-radius: 6px;
-          background: #4299e1;
+          background: #c5a47e;
           border: none;
           color: white;
           font-size: 1rem;
@@ -458,11 +535,11 @@ const AboutUs6 = () => {
         }
         
         .submit-button:hover:not(:disabled) {
-          background: #3182ce;
+          background: #c5a47e;
         }
         
         .submit-button:disabled {
-          background: rgba(66, 153, 225, 0.5);
+          background: #c5a47e;
           cursor: not-allowed;
         }
         
@@ -474,6 +551,18 @@ const AboutUs6 = () => {
             gap: 0.75rem;
           }
           
+          .section-header {
+            padding: 3rem 1rem 1rem;
+          }
+          .section-header h2 {
+            font-size: 2rem;
+          }
+          .section-header p {
+            font-size: 1rem;
+            padding: 0 1rem;
+          }
+        }
+
           .time-button {
             flex: 1 0 calc(50% - 0.5rem);
           }
@@ -505,7 +594,15 @@ const AboutUs6 = () => {
           .time-button {
             flex: 1 0 100%;
           }
+            .section-header {
+            padding: 2rem 1rem 1rem;
+          }
+          .section-header h2 {
+            font-size: 1.75rem;
+          }
         }
+        }
+
       `}</style>
     </section>
   );
