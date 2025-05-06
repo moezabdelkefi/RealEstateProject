@@ -9228,3 +9228,11 @@ section.next-prog.section-padding {
     padding: 0;
   }
 }
+.hubspot-calendar-container {
+  width: 100%;
+  min-height: 500px;
+  background: #f5f5f5; /* Fallback color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

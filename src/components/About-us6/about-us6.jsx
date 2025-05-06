@@ -1,55 +1,514 @@
-import React from 'react'
-import Link from 'next/link'
+import React, { useState } from "react";
+import Link from "next/link";
 
 const AboutUs6 = () => {
-    return (
-      <section id="about" className="about-ar section-padding">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 valign">
-              <div className="img">
-                <div
-                  className="bg-img bg-fixed hero-bg"
-                  style={{ backgroundImage: "url(/img/arch/hero.jpg)" }}
-                ></div>
-                <div className="exp valign text-center">
-                  <div className="full-width">
-                    <h2
-                      className="bg-img bg-fixed"
-                      style={{ backgroundImage: "url(/img/arch/hero.jpg)" }}
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const handleDateClick = (date) => {
+    setSelectedDate(date);
+    setSelectedTime(null); // Reset time when date changes
+  };
+
+  const handleTimeClick = (time) => {
+    setSelectedTime(time);
+  };
+
+  // Available time slots data
+  const timeSlots = ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM'];
+
+  // Calendar data for May 2025
+  const calendarDays = [
+    [27, 28, 29, 30, 1, 2, 3],
+    [4, 5, 6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15, 16, 17],
+    [18, 19, 20, 21, 22, 23, 24],
+    [25, 26, 27, 28, 29, 30, 31]
+  ];
+
+  // Days of week for calendar header
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  return (
+    <section id="about" className="about-ar section-padding">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 valign">
+            <div className="img">
+              <div className="booking-card">
+                <div className="booking-card__header">
+                  <div className="profile-header">
+                    <div className="avatar-wrapper">
+                      <div className="avatar-content">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
+                      </div>
+                    </div>
+                    <h2 className="profile-title">Meet with Us</h2>
+                  </div>
+                </div>
+                
+                <div className="date-picker">
+                  {/* Selected Date & Time Display */}
+                  {(selectedDate || selectedTime) && (
+                    <div className="selection-summary">
+                      {selectedDate && (
+                        <div className="selected-info">
+                          <span className="info-label">Selected Date:</span>
+                          <span className="info-value">May {selectedDate}, 2025</span>
+                        </div>
+                      )}
+                      {selectedTime && (
+                        <div className="selected-info">
+                          <span className="info-label">Selected Time:</span>
+                          <span className="info-value">{selectedTime}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  {/* Calendar Section */}
+                  <div className="date-picker-header">
+                    <button className="month-nav-button disabled" aria-label="Previous month" disabled>
+                      <span className="nav-icon">‹</span>
+                    </button>
+                    <h3 className="month-title">May 2025</h3>
+                    <button className="month-nav-button disabled" aria-label="Next month" disabled>
+                      <span className="nav-icon">›</span>
+                    </button>
+                  </div>
+                  
+                  <div className="calendar-container">
+                    <table className="calendar-table">
+                      <caption className="calendar-caption">Select a day in May</caption>
+                      <thead>
+                        <tr>
+                          {daysOfWeek.map(day => (
+                            <th key={day} scope="col"><span>{day}</span></th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {calendarDays.map((week, weekIndex) => (
+                          <tr key={weekIndex}>
+                            {week.map((day, dayIndex) => (
+                              <td key={dayIndex}>
+                                <button 
+                                  className={`date-button ${selectedDate === day ? 'selected' : ''} ${day < 6 || day > 17 ? 'disabled' : ''}`} 
+                                  onClick={day >= 6 && day <= 17 ? () => handleDateClick(day) : undefined}
+                                  disabled={day < 6 || day > 17}
+                                >
+                                  {day}
+                                </button>
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  {/* Time Slots Section */}
+                  <div className="time-slots">
+                    <h4 className="time-slots-title">Available Times</h4>
+                    <div className="time-buttons">
+                      {timeSlots.map(time => (
+                        <button 
+                          key={time}
+                          className={`time-button ${selectedTime === time ? 'selected' : ''}`} 
+                          onClick={() => handleTimeClick(time)}
+                          disabled={!selectedDate}
+                        >
+                          {time}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Form Section */}
+                  <div className="booking-form">
+                    <h4 className="form-title">Your Information</h4>
+                    <div className="form-group">
+                      <label htmlFor="firstName">First Name</label>
+                      <input 
+                        type="text" 
+                        id="firstName" 
+                        className="form-input" 
+                        placeholder="Enter your first name" 
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="lastName">Last Name</label>
+                      <input 
+                        type="text" 
+                        id="lastName" 
+                        className="form-input" 
+                        placeholder="Enter your last name" 
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="email">Email Address</label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        className="form-input" 
+                        placeholder="Enter your email address" 
+                      />
+                    </div>
+                    <button 
+                      className="submit-button"
+                      disabled={!selectedDate || !selectedTime}
                     >
-                      25
-                    </h2>
-                    <p>Years Of Experience</p>
+                      Confirm Booking
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="col-lg-6 valign">
-              <div className="content">
-                <h6 className="sub-title main-color ls10 text-u">About Us</h6>
-                <h3>Best Designers Architectures for You.</h3>
-                <p>
-                  Architecture bibendum pharetra eleifend. Suspendisse vel
-                  volutpat purus, sit amet bibendum nisl. Cras mollis turpis a
-                  ipsum ultes, nec condimentum ipsum consequat. Mauris vitae
-                  consequat nibh, vitae interdum sit amet bibendum nisl.
-                </p>
+          <div className="col-lg-6 valign">
+            <div className="content">
+              <h6 className="sub-title main-color ls10 text-u">About Us</h6>
+              <h3>
+                Double Your Profits From Real Estate Investment With A Free
+                Consultation Now!
+              </h3>
+              <p>
+                Architecture bibendum pharetra eleifend. Suspendisse vel
+                volutpat purus, sit amet bibendum nisl. Cras mollis turpis a
+                ipsum ultes, nec condimentum ipsum consequat. Mauris vitae
+                consequat nibh, vitae interdum sit amet bibendum nisl.
+              </p>
 
-                <Link
-                  href={`/about/about-dark`}
-                >
-                  <a className="butn bord mt-30">
-                    <span>About Us</span>
-                  </a>
-                </Link>
-              </div>
+              <Link href={`/about/about-dark`}>
+                <a className="butn bord mt-30">
+                  <span>About Us</span>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
-      </section>
-    );
-}
+      </div>
 
-export default AboutUs6
+      <style>{`
+        .booking-card {
+          background: #2d3748;
+          border-radius: 12px;
+          overflow: hidden;
+          color: white;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          margin-bottom: 2rem;
+        }
+        
+        .booking-card__header {
+          padding: 1.5rem 1.5rem 1rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .profile-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        
+        .avatar-wrapper {
+          width: 4.5rem;
+          height: 4.5rem;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .profile-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin: 0;
+        }
+        
+        .date-picker {
+          padding: 1rem 1.5rem;
+        }
+        
+        .selection-summary {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 8px;
+          padding: 0.75rem 1rem;
+          margin-bottom: 1rem;
+        }
+        
+        .selected-info {
+          display: flex;
+          gap: 0.5rem;
+          font-size: 0.95rem;
+        }
+        
+        .info-label {
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .info-value {
+          font-weight: 600;
+        }
+        
+        .date-picker-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+        }
+        
+        .month-nav-button {
+          background: none;
+          border: none;
+          color: white;
+          opacity: 0.5;
+          cursor: pointer;
+          font-size: 1.2rem;
+          padding: 0.5rem;
+        }
+        
+        .month-nav-button:not(.disabled):hover {
+          opacity: 1;
+        }
+        
+        .month-nav-button.disabled {
+          cursor: not-allowed;
+        }
+        
+        .month-title {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin: 0;
+          min-width: 6.25rem;
+          text-align: center;
+        }
+        
+        .calendar-container {
+          margin-bottom: 1rem;
+          overflow-x: auto;
+        }
+        
+        .calendar-table {
+          width: 100%;
+          border-collapse: collapse;
+          min-width: 300px;
+        }
+        
+        .calendar-caption {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border-width: 0;
+        }
+        
+        .calendar-table th {
+          padding: 0.5rem 0;
+          font-weight: 500;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .calendar-table td {
+          text-align: center;
+          padding: 0.25rem;
+        }
+        
+        .date-button {
+          width: 2.25rem;
+          height: 2.25rem;
+          border-radius: 50%;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 0.95rem;
+          cursor: pointer;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+        }
+        
+        .date-button:not(.disabled):hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .date-button.selected,
+        .date-button:not(.disabled):focus {
+          background: #4299e1;
+          color: white;
+          outline: none;
+        }
+        
+        .date-button.disabled {
+          color: rgba(255, 255, 255, 0.3);
+          cursor: not-allowed;
+        }
+        
+        .time-slots {
+          padding: 1rem 1.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .time-slots-title {
+          font-size: 1rem;
+          font-weight: 600;
+          margin-bottom: 0.75rem;
+          color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .time-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        
+        .time-button {
+          padding: 0.5rem 0.75rem;
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.1);
+          border: none;
+          color: white;
+          font-size: 0.9rem;
+          cursor: pointer;
+          transition: all 0.2s;
+          flex: 1 0 calc(33.333% - 0.5rem);
+          min-width: 80px;
+        }
+        
+        .time-button:hover:not(:disabled) {
+          background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .time-button.selected,
+        .time-button:focus:not(:disabled) {
+          background: #4299e1;
+          outline: none;
+        }
+        
+        .time-button:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        
+        .booking-form {
+          padding: 1rem 1.5rem 1.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-title {
+          font-size: 1rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-group {
+          margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .form-input {
+          width: 100%;
+          padding: 0.625rem 0.75rem;
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          font-size: 0.9rem;
+          transition: all 0.2s;
+        }
+        
+        .form-input:focus {
+          outline: none;
+          border-color: #4299e1;
+          background: rgba(66, 153, 225, 0.1);
+        }
+        
+        .form-input::placeholder {
+          color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .submit-button {
+          width: 100%;
+          padding: 0.75rem;
+          border-radius: 6px;
+          background: #4299e1;
+          border: none;
+          color: white;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s;
+          margin-top: 0.5rem;
+        }
+        
+        .submit-button:hover:not(:disabled) {
+          background: #3182ce;
+        }
+        
+        .submit-button:disabled {
+          background: rgba(66, 153, 225, 0.5);
+          cursor: not-allowed;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .profile-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.75rem;
+          }
+          
+          .time-button {
+            flex: 1 0 calc(50% - 0.5rem);
+          }
+          
+          .calendar-table td {
+            padding: 0.125rem;
+          }
+          
+          .date-button {
+            width: 2rem;
+            height: 2rem;
+            font-size: 0.85rem;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .booking-card__header {
+            padding: 1rem;
+          }
+          
+          .date-picker {
+            padding: 1rem;
+          }
+          
+          .time-slots, .booking-form {
+            padding: 1rem;
+          }
+          
+          .time-button {
+            flex: 1 0 100%;
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default AboutUs6;
