@@ -47,7 +47,7 @@ const GoogleTranslate = () => {
       }
 
       .custom-translate-button {
-          background-color: #c5a47e;
+          background-color: #c69832;
           color: white;
           border: none;
           padding: 10px 20px;

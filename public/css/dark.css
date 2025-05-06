@@ -219,7 +219,7 @@ span:hover {
   position: absolute;
   height: 80px;
   width: 1px;
-  background: #c5a47e;
+  background: #fae58a;
   left: 50%;
   opacity: 0.3;
 }
@@ -4032,9 +4032,9 @@ span:hover {
     color-stop(#c471ed),
     to(#f64f59)
   );
-  background: -webkit-linear-gradient(left, #000000, #c5a47e, #000000);
-  background: -o-linear-gradient(left, #000000, #c5a47e, #000000);
-  background: linear-gradient(to right, #000000, #c5a47e, #000000);
+  background: -webkit-linear-gradient(left, #000000, #fae58a, #000000);
+  background: -o-linear-gradient(left, #000000, #fae58a, #000000);
+  background: linear-gradient(to right, #000000, #fae58a, #000000);
   z-index: -2;
 }
 
@@ -4222,12 +4222,12 @@ span:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #c5a47e;
+  -webkit-text-stroke-color: #fae58a;
   line-height: 1;
 }
 
 .about-ar .img .exp p {
-  color: #c5a47e;
+  color: #fae58a;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -8133,7 +8133,9 @@ footer .item .copy-right p {
 
 footer .item .copy-right p a {
   color: #12c2e9;
+  
 }
+
 
 /* ====================== [ End Footer ] ====================== */
 /* ====================== [ Start Responsive ] ====================== */
@@ -8635,7 +8637,7 @@ footer .item .copy-right p a {
   }
 
   .navbar .logo {
-    width: 40px;
+    width: 50px;
   }
 
   .hamenu .menu-links .main-menu > li {
@@ -9236,3 +9238,4 @@ section.next-prog.section-padding {
   align-items: center;
   justify-content: center;
 }
+

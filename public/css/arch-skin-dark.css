@@ -36,7 +36,7 @@ p {
 .navbar .navbar-nav .dropdown-item:hover,
 .main-color,
 .progress-wrap::after {
-  color: #c5a47e !important;
+  color: #c69832 !important;
 }
 
 .navbar .dropdown-menu .dropdown-item:after,
@@ -44,11 +44,11 @@ p {
 .line,
 .cursor-inner,
 .pace .pace-progress {
-  background: #c5a47e !important;
+  background: #c69832 !important;
 }
 
 .cursor-outer {
-  border-color: #c5a47e !important;
+  border-color: #c69832 !important;
 }
 
 .main-content {
@@ -56,13 +56,13 @@ p {
 }
 
 .color-font {
-  color: #c5a47e;
-  -webkit-text-fill-color: #c5a47e;
+  color: #c69832;
+  -webkit-text-fill-color: #c69832;
   background: none;
 }
 
 .progress-wrap svg.progress-circle path {
-  stroke: #c5a47e;
+  stroke: #c69832;
 }
 
 .sub-bg {
@@ -100,6 +100,6 @@ p {
   .nav-scroll .navbar-collapse .active,
   .light .navbar-collapse .active,
   .navbar .navbar-nav .nav-link:hover {
-    color: #c5a47e !important;
+    color: #c69832 !important;
   }
 }

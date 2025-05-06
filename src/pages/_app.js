@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>BADFI</title>
-        <link rel="icon" href="/img/favicon.ico" />
+        <title>DRAGON EYE</title>
+        <link rel="icon" href="/img/favicon.png" />
       </Head>
       <Cursor />
       <LoadingScreen />

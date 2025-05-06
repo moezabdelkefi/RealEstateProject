@@ -7,7 +7,6 @@ import { handleDropdown, handleMobileDropdown } from "../../common/navbar";
 import GoogleTranslate from "../googletranslate";
 
 const NavbarArch = ({ navbarRef, theme }) => {
-  
   return (
     <nav className="navbar navbar-expand-lg" ref={navbarRef}>
       <div className="container">
@@ -22,6 +21,11 @@ const NavbarArch = ({ navbarRef, theme }) => {
             <img src={appData.lightLogo} alt="logo" />
           )}
         </a>
+
+        {/* Google Translate button placed above the burger menu */}
+        <div className="google-translate-wrapper d-lg-none">
+          <GoogleTranslate />
+        </div>
 
         <button
           className="navbar-toggler"
@@ -40,8 +44,6 @@ const NavbarArch = ({ navbarRef, theme }) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-           
-
             <li className="nav-item">
               <Link
                 className="nav-link"
@@ -51,8 +53,7 @@ const NavbarArch = ({ navbarRef, theme }) => {
                 offset={50}
                 duration={500}
               >
-               Why A Free Consultation With ?
-
+                Why A Free Consultation With ?
               </Link>
             </li>
             <li className="nav-item">
@@ -64,11 +65,15 @@ const NavbarArch = ({ navbarRef, theme }) => {
                 offset={50}
                 duration={500}
               >
-               How it works
+                How it works
               </Link>
             </li>
           </ul>
-        <GoogleTranslate />
+
+          {/* Google Translate button for larger screens only */}
+          <div className="d-none d-lg-block">
+            <GoogleTranslate />
+          </div>
         </div>
       </div>
     </nav>

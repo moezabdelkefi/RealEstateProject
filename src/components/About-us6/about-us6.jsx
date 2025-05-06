@@ -63,7 +63,7 @@ const AboutUs6 = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           zIndex: -1,
-          opacity: 0.4,
+          opacity: 0.2,
           // Remove transform and transition
         }}
       ></div>
@@ -83,21 +83,23 @@ const AboutUs6 = () => {
             fontSize: "2.5rem",
             fontWeight: "700",
             marginBottom: "1rem",
-            color: "#c5a47e",
+            color: "#c69832",
           }}
         >
-          Schedule Your Consultation
+          Double Your Profits From Real Estate Investment With A Free
+          Consultation Now!
         </h2>
         <p
           style={{
             fontSize: "1.2rem",
             maxWidth: "700px",
             margin: "0 auto",
-            opacity: 0.9,
           }}
         >
-          Book a free meeting with our real estate experts to discuss your
-          investment opportunities
+          Get a complimentary consultation with real estate investment experts
+          to achieve the highest return on investment. Learn how to choose the
+          right property for purchase, whether for residential or investment
+          purposes.
         </p>
       </div>
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
@@ -109,10 +111,7 @@ const AboutUs6 = () => {
                   <div className="profile-header">
                     <div className="avatar-wrapper">
                       <div className="avatar-content">
-                        <svg
-                          viewBox="0 0 100 100"
-                          xmlns="http://www.w3.org/2000/svg"
-                        ></svg>
+                        <img src={"/avatar.png"} alt="" />
                       </div>
                     </div>
                     <h2 className="profile-title">Meet with Zoom</h2>
@@ -242,7 +241,6 @@ const AboutUs6 = () => {
 
           <div className="col-lg-6 valign">
             <div className="content">
-              <h6 className="sub-title main-color ls10 text-u">About Us</h6>
               <h3>
                 Double Your Profits From Real Estate Investment With A Free
                 Consultation Now!
@@ -260,6 +258,15 @@ const AboutUs6 = () => {
               <p>
                 - Many misleading offers that surprise you with hidden fees and
                 undisclosed payments in advertisements.
+              </p>
+              <p>
+                Having a very limited budget and not knowing if it’s sufficient
+                for any project currently.
+              </p>
+              <p>
+                Or facing many concerns upon project delivery, such as delivery
+                dates or the ease of selling or renting the property after
+                delivery.
               </p>
             </div>
           </div>
@@ -359,7 +366,7 @@ const AboutUs6 = () => {
           margin: 0;
           min-width: 6.25rem;
           text-align: center;
-          color: #c5a47e;
+          color: #c69832;
         }
         
         .calendar-container {
@@ -419,7 +426,7 @@ const AboutUs6 = () => {
         
         .date-button.selected,
         .date-button:not(.disabled):focus {
-          background: #c5a47e;
+          background: #c69832;
           color: white;
           outline: none;
         }
@@ -438,7 +445,7 @@ const AboutUs6 = () => {
           font-size: 1rem;
           font-weight: 600;
           margin-bottom: 0.75rem;
-          color: #c5a47e;
+          color: #c69832;
         }
         
         .time-buttons {
@@ -466,7 +473,7 @@ const AboutUs6 = () => {
         
         .time-button.selected,
         .time-button:focus:not(:disabled) {
-          background: #c5a47e;
+          background: #c69832;
           outline: none;
         }
         
@@ -484,7 +491,7 @@ const AboutUs6 = () => {
           font-size: 1rem;
           font-weight: 600;
           margin-bottom: 1rem;
-          color: #c5a47e;
+          color: #c69832;
         }
         
         .form-group {
@@ -502,7 +509,7 @@ const AboutUs6 = () => {
           width: 100%;
           padding: 0.625rem 0.75rem;
           border-radius: 6px;
-          border: 1px solid #c5a47e;
+          border: 1px solid #c69832;
           background: rgba(255, 255, 255, 0.1);
           color: white;
           font-size: 0.9rem;
@@ -511,7 +518,7 @@ const AboutUs6 = () => {
         
         .form-input:focus {
           outline: none;
-          border-color: #c5a47e;
+          border-color: #c69832;
           background: rgba(66, 153, 225, 0.1);
         }
         
@@ -523,7 +530,7 @@ const AboutUs6 = () => {
           width: 100%;
           padding: 0.75rem;
           border-radius: 6px;
-          background: #c5a47e;
+          background: #c69832;
           border: none;
           color: white;
           font-size: 1rem;
@@ -534,11 +541,11 @@ const AboutUs6 = () => {
         }
         
         .submit-button:hover:not(:disabled) {
-          background: #c5a47e;
+          background: #c69832;
         }
         
         .submit-button:disabled {
-          background: #c5a47e;
+          background: #c69832;
           cursor: not-allowed;
         }
         

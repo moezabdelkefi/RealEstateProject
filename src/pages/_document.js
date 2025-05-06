@@ -22,7 +22,7 @@ class MyDocument extends Document {
             content="Vie - Onepage Multi-Purpose HTML5 Template"
           />
           <meta name="author" content="" />
-          <link rel="shortcut icon" href="/img/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.png" />
           <link
             href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
             rel="stylesheet"
