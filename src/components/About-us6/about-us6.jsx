@@ -4,6 +4,49 @@ const AboutUs6 = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
+  // filepath: /home/moez/RealEstateProject/src/components/About-us6/about-us6.jsx
+  const handleBookingSubmit = async () => {
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
+    const whatsapp = document.getElementById("whatsapp").value;
+
+    console.log("Form Data:", {
+      firstName,
+      lastName,
+      email,
+      whatsapp,
+      selectedDate,
+      selectedTime,
+    }); // Debug log
+
+    const bookingData = {
+      firstName,
+      lastName,
+      email,
+      whatsapp,
+      selectedDate,
+      selectedTime,
+    };
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingData),
+      });
+
+      if (response.ok) {
+        alert("Booking confirmed and email sent!");
+      } else {
+        alert("Failed to send booking confirmation email.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while sending the email.");
+    }
+  };
+
   useEffect(() => {
     // Parallax effect for background
     const handleScroll = () => {
@@ -239,6 +282,7 @@ const AboutUs6 = () => {
                     <button
                       className="submit-button"
                       disabled={!selectedDate || !selectedTime}
+                      onClick={handleBookingSubmit}
                     >
                       Confirm Booking
                     </button>
