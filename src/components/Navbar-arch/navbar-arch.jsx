@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-scroll";
 import appData from "../../data/app.json";
 import { handleDropdown, handleMobileDropdown } from "../../common/navbar";
+import GoogleTranslate from "../googletranslate";
 
 const NavbarArch = ({ navbarRef, theme }) => {
   
@@ -67,6 +68,7 @@ const NavbarArch = ({ navbarRef, theme }) => {
               </Link>
             </li>
           </ul>
+        <GoogleTranslate />
         </div>
       </div>
     </nav>
