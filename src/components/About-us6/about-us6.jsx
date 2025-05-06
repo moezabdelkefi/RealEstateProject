@@ -239,7 +239,7 @@ const AboutUs6 = () => {
             </div>
           </div>
 
-          <div className="col-lg-6 valign">
+          <div className="col-lg-6 valign" style={{textAlign: "center"}}>
             <div className="content">
               <h3>
                 Double Your Profits From Real Estate Investment With A Free
