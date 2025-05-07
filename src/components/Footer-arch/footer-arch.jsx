@@ -14,7 +14,11 @@ const FooterArch = () => {
               <div className="item md-mb50">
                 <div className="title">
                   <div className="logo">
-                    <img src={"/avatar.png"} alt={t("footer.logoAlt")} />
+                    <img
+                      src={"/avatar.png"}
+                      alt={t("footer.logoAlt")}
+          
+                    />{" "}
                   </div>
                 </div>
               </div>
@@ -25,13 +29,18 @@ const FooterArch = () => {
                 <div className="copy-right text-center">
                   <p>
                     {t("footer.rights")}{" "}
-                    <a href="#0" className="main-color">
+                    <a
+                      href="https://www.badfi.tech/"
+                      className="main-color"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {t("footer.poweredBy")}
                     </a>
                     .
                   </p>
                   <div className="responsive-center">
-                    <p style={{ margin: 0 }}>{t("footer.terms")}</p>
+                    <p style={{ margin: 0 }}>{t("footer.terms")}</p> -
                     <p style={{ margin: 0 }}>{t("footer.privacy")}</p>
                   </div>
                 </div>
@@ -56,8 +65,10 @@ const FooterArch = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 4px;
           }
+            footer .item .logo img {
+            width: 150px;}
         }
       `}</style>
     </>
