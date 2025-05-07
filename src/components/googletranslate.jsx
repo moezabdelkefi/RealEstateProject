@@ -1,29 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const GoogleTranslate = () => {
+  const { t, i18n } = useTranslation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
-        { pageLanguage: "en" },
-        "google_translate_element"
-      );
-    };
-
-    const addGoogleTranslateScript = () => {
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.async = true;
-      script.src =
-        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      document.body.appendChild(script);
-      window.googleTranslateElementInit = googleTranslateElementInit;
-    };
-
-    addGoogleTranslateScript();
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -62,7 +43,7 @@ const GoogleTranslate = () => {
       }
 
       .custom-translate-button:hover {
-         
+          background-color: #b5862c;
       }
 
       .arrow {
@@ -76,11 +57,11 @@ const GoogleTranslate = () => {
           top: 100%;
           left: 0;
           background-color: white;
-         
           z-index: 1;
           width: 100%; /* Match the width of the button */
           border-radius: 5px;
           overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
       .custom-translate-dropdown button {
@@ -96,37 +77,6 @@ const GoogleTranslate = () => {
       .custom-translate-dropdown button:hover {
           background-color: #ddd;
       }
-
-      .goog-te-banner-frame.skiptranslate {
-          display: none !important;
-      }
-
-      .goog-logo-link {
-          display: none !important;
-      }
-
-      .goog-te-gadget {
-          color: transparent !important;
-      }
-
-      .goog-te-gadget .goog-te-combo {
-          background-color: transparent !important;
-          color: green !important;
-          font-size: 14px;
-          font-weight: 500;
-          font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-          -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
-          -moz-appearance: none; /* Remove default arrow in Firefox */
-          appearance: none; /* Remove default arrow in other browsers */
-          background-image: none; /* Remove default arrow in IE */
-      }
-
-      .VIpgJd-ZVi9od-l4eHX-hSRGPd {
-          display: none;
-      }
-      .VIpgJd-ZVi9od-ORHb-OEVmcd  {
-        display: none;
-      }
     `;
 
     const styleSheet = document.createElement("style");
@@ -141,11 +91,7 @@ const GoogleTranslate = () => {
   }, []);
 
   const handleLanguageChange = (languageCode) => {
-    const translateElement = document.querySelector(".goog-te-combo");
-    if (translateElement) {
-      translateElement.value = languageCode;
-      translateElement.dispatchEvent(new Event("change"));
-    }
+    i18n.changeLanguage(languageCode); // Change language using i18next
     setDropdownOpen(false); // Close the dropdown after selecting a language
   };
 
@@ -156,7 +102,7 @@ const GoogleTranslate = () => {
   return (
     <div className="custom-google-translate" ref={dropdownRef}>
       <button onClick={toggleDropdown} className="custom-translate-button">
-        Languages{" "}
+        {t("select_language")}{" "}
         <span className="arrow">
           <svg
             width="12"
@@ -171,11 +117,14 @@ const GoogleTranslate = () => {
       </button>
       {dropdownOpen && (
         <div className="custom-translate-dropdown">
-          <button onClick={() => handleLanguageChange("en")}>English</button>
-          <button onClick={() => handleLanguageChange("ar")}>Arabic</button>
+          <button onClick={() => handleLanguageChange("en")}>
+           English
+          </button>
+          <button onClick={() => handleLanguageChange("ar")}>
+            Arabic
+          </button>
         </div>
       )}
-      <div id="google_translate_element" style={{ display: "none" }}></div>
     </div>
   );
 };

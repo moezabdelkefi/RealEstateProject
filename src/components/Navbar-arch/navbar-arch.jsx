@@ -2,11 +2,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Link } from "react-scroll";
+import { useTranslation } from "react-i18next";
 import appData from "../../data/app.json";
 import { handleDropdown, handleMobileDropdown } from "../../common/navbar";
 import GoogleTranslate from "../googletranslate";
 
 const NavbarArch = ({ navbarRef, theme }) => {
+  const { t } = useTranslation();
+
   return (
     <nav className="navbar navbar-expand-lg" ref={navbarRef}>
       <div className="container">
@@ -53,7 +56,7 @@ const NavbarArch = ({ navbarRef, theme }) => {
                 offset={50}
                 duration={500}
               >
-                Why A Free Consultation With Dragon Eye?
+                {t("navbar.whyConsultation")}
               </Link>
             </li>
             <li className="nav-item">
@@ -65,7 +68,7 @@ const NavbarArch = ({ navbarRef, theme }) => {
                 offset={50}
                 duration={500}
               >
-                How it works
+                {t("navbar.howItWorks")}
               </Link>
             </li>
           </ul>

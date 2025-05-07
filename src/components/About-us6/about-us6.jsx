@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const AboutUs6 = () => {
+  const { t, i18n } = useTranslation();
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
@@ -48,6 +50,11 @@ const AboutUs6 = () => {
   };
 
   useEffect(() => {
+    // Update the lang attribute on the <html> tag
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
+  useEffect(() => {
     // Parallax effect for background
     const handleScroll = () => {
       const parallaxBg = document.querySelector(".parallax-bg");
@@ -85,7 +92,7 @@ const AboutUs6 = () => {
   ];
 
   // Days of week for calendar header
-  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const daysOfWeek = t("aboutUs6.days", { returnObjects: true });
 
   return (
     <section
@@ -129,20 +136,10 @@ const AboutUs6 = () => {
             color: "#c69832",
           }}
         >
-          Double Your Profits From Real Estate Investment With A Free
-          Consultation Now!
+          {t("aboutUs6.title")}
         </h2>
-        <p
-          style={{
-            fontSize: "1.2rem",
-            maxWidth: "700px",
-            margin: "0 auto",
-          }}
-        >
-          Get a complimentary consultation with real estate investment experts
-          to achieve the highest return on investment. Learn how to choose the
-          right property for purchase, whether for residential or investment
-          purposes.
+        <p style={{ fontSize: "1.2rem", maxWidth: "700px", margin: "0 auto" }}>
+          {t("aboutUs6.subtitle")}
         </p>
       </div>
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
@@ -157,7 +154,9 @@ const AboutUs6 = () => {
                         <img src={"/avatar.png"} alt="" />
                       </div>
                     </div>
-                    <h2 className="profile-title">Meet with Zoom</h2>
+                    <h2 className="profile-title">
+                      {t("aboutUs6.meetWithZoom")}
+                    </h2>
                   </div>
                 </div>
 
@@ -184,8 +183,9 @@ const AboutUs6 = () => {
                   <div className="calendar-container">
                     <table className="calendar-table">
                       <caption className="calendar-caption">
-                        Select a day in May
+                        {t("aboutUs6.calendarCaption")}
                       </caption>
+
                       <thead>
                         <tr>
                           {daysOfWeek.map((day) => (
@@ -223,7 +223,9 @@ const AboutUs6 = () => {
 
                   {/* Time Slots Section */}
                   <div className="time-slots">
-                    <h4 className="time-slots-title">Available Times</h4>
+                    <h4 className="time-slots-title">
+                      {t("aboutUs6.availableTimes")}
+                    </h4>
                     <div className="time-buttons">
                       {timeSlots.map((time) => (
                         <button
@@ -242,9 +244,11 @@ const AboutUs6 = () => {
 
                   {/* Form Section */}
                   <div className="booking-form">
-                    <h4 className="form-title">Your Information</h4>
+                    <h4 className="form-title">{t("aboutUs6.formTitle")}</h4>
                     <div className="form-group">
-                      <label htmlFor="firstName">First Name</label>
+                      <label htmlFor="firstName">
+                        {t("aboutUs6.form.firstName")}
+                      </label>
                       <input
                         type="text"
                         id="firstName"
@@ -253,7 +257,9 @@ const AboutUs6 = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="lastName">Last Name</label>
+                      <label htmlFor="lastName">
+                        {t("aboutUs6.form.lastName")}
+                      </label>
                       <input
                         type="text"
                         id="lastName"
@@ -262,7 +268,7 @@ const AboutUs6 = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="email">Email Address</label>
+                      <label htmlFor="email">{t("aboutUs6.form.email")}</label>
                       <input
                         type="email"
                         id="email"
@@ -271,7 +277,9 @@ const AboutUs6 = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="whatsapp">WhatsApp Number</label>
+                      <label htmlFor="whatsapp">
+                        {t("aboutUs6.form.whatsapp")}
+                      </label>
                       <input
                         type="tel"
                         id="whatsapp"
@@ -284,7 +292,7 @@ const AboutUs6 = () => {
                       disabled={!selectedDate || !selectedTime}
                       onClick={handleBookingSubmit}
                     >
-                      Confirm Booking
+                      {t("aboutUs6.form.confirmBooking")}
                     </button>
                   </div>
                 </div>
@@ -294,38 +302,19 @@ const AboutUs6 = () => {
 
           <div className="col-lg-6 valign" style={{ textAlign: "center" }}>
             <div className="content">
-              <h3>
-                Double Your Profits From Real Estate Investment With A Free
-                Consultation Now!
-              </h3>
-              <p>
-                - If you’re an investor seeking the highest return on investment
-                or you’re searching for your dream home for you and your family
-                in the United Arab Emirates, there are always obstacles to
-                achieving these goals:
-              </p>
-              <p>- Numerous options available in the UAE market.</p>
-              <p>
-                - Constant confusion in choosing the best real estate project.
-              </p>
-              <p>
-                - Many misleading offers that surprise you with hidden fees and
-                undisclosed payments in advertisements.
-              </p>
-              <p>
-                Having a very limited budget and not knowing if it’s sufficient
-                for any project currently.
-              </p>
-              <p>
-                Or facing many concerns upon project delivery, such as delivery
-                dates or the ease of selling or renting the property after
-                delivery.
-              </p>
+              {t("aboutUs6.rightSection.points", { returnObjects: true }).map(
+                (point, index) => (
+                  <p key={index}>{point}</p>
+                )
+              )}
             </div>
           </div>
         </div>
       </div>
       <style>{`
+       html[lang="ar"] {
+            font-size: 1em;
+          }
         .booking-card {
           background: #000000;
           border-radius: 12px;
@@ -604,6 +593,9 @@ const AboutUs6 = () => {
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
+          html[lang="ar"] {
+    font-size: 1em;
+  }
           .profile-header {
             flex-direction: column;
             text-align: center;
@@ -638,6 +630,9 @@ const AboutUs6 = () => {
         }
         
         @media (max-width: 576px) {
+          html[lang="ar"] {
+    font-size: 1em;
+  }
           .booking-card__header {
             padding: 1rem;
           }

@@ -1,0 +1,71 @@
+{
+  "services6": {
+    "title": "Why A Free Consultation With Dragon Eye?",
+    "content": {
+      "paragraph1": "Our experts specialize in real estate investment and the property market in Dubai, providing tailor-made consultations.",
+      "paragraph2": "Enjoy the consultation from your home.",
+      "paragraph3": "The consultation is free and online, right from the comfort of your home.",
+      "paragraph4": "Answers to all your questions.",
+      "paragraph5": "We help you make a successful investment decision."
+    }
+  },
+  "worksStyle5": {
+    "title": "How it works",
+    "step1": {
+      "title": "1. Book your appointment:",
+      "description": "Enter your details on this page and choose the convenient time for you to conduct the free real estate consultation."
+    },
+    "step2": {
+      "title": "2. We will keep in touch:",
+      "description": "We will send you a confirmation message with the consultation link, and we will remind you sufficiently before the appointment. During the consultation, one of our experts will contact you to discuss your goals, answer your questions, and provide suggestions that suit you."
+    },
+    "step3": {
+      "title": "3. Define your goals:",
+      "description": "It is preferable to define your goal in real estate investment, whether you are looking for a property for residence or investment to achieve profits. It is also advisable to specify your available budget to help our experts choose the best properties that suit you."
+    }
+  },
+  "aboutUs6": {
+    "title": "Double Your Profits From Real Estate Investment With A Free Consultation Now!",
+    "subtitle": "Get a complimentary consultation with real estate investment experts to achieve the highest return on investment. Learn how to choose the right property for purchase, whether for residential or investment purposes.",
+    "meetWithZoom": "Meet with Zoom",
+    "calendarCaption": "Select a day in May",
+    "availableTimes": "Available Times",
+    "formTitle": "Your Information",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "whatsapp": "WhatsApp Number",
+      "placeholder": {
+        "firstName": "Enter your first name",
+        "lastName": "Enter your last name",
+        "email": "Enter your email address",
+        "whatsapp": "Enter your WhatsApp number with country code"
+      },
+      "confirmBooking": "Confirm Booking"
+    },
+    "rightSection": {
+      "title": "Double Your Profits From Real Estate Investment With A Free Consultation Now!",
+      "points": [
+        "If you’re an investor seeking the highest return on investment or you’re searching for your dream home for you and your family in the United Arab Emirates, there are always obstacles to achieving these goals:",
+        "Numerous options available in the UAE market.",
+        "Constant confusion in choosing the best real estate project.",
+        "Many misleading offers that surprise you with hidden fees and undisclosed payments in advertisements.",
+        "Having a very limited budget and not knowing if it’s sufficient for any project currently.",
+        "Or facing many concerns upon project delivery, such as delivery dates or the ease of selling or renting the property after delivery."
+      ]
+    },
+    "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  },
+  "footer": {
+    "logoAlt": "Logo",
+    "rights": "2025 All Rights Reserved.",
+    "poweredBy": "Powered by BadfiTech",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy"
+  },
+  "navbar": {
+  "whyConsultation": "Why A Free Consultation With Dragon Eye?",
+  "howItWorks": "How it works"
+}
+}
