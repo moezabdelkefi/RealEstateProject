@@ -22,7 +22,7 @@ const FooterArch = () => {
 
             <div className="col-lg-4">
               <div className="item">
-                <div className="copy-right">
+                <div className="copy-right text-center">
                   <p>
                     {t("footer.rights")}{" "}
                     <a href="#0" className="main-color">
@@ -30,7 +30,7 @@ const FooterArch = () => {
                     </a>
                     .
                   </p>
-                  <div style={{ display: "flex", gap: "10px" }}>
+                  <div className="responsive-center">
                     <p style={{ margin: 0 }}>{t("footer.terms")}</p>
                     <p style={{ margin: 0 }}>{t("footer.privacy")}</p>
                   </div>
@@ -44,6 +44,20 @@ const FooterArch = () => {
       <style>{`
         .copy-right a {
           text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+          .logo {
+            display: flex;
+            justify-content: center;
+          }
+
+          .responsive-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
         }
       `}</style>
     </>
